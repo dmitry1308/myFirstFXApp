@@ -11,7 +11,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("window/window.fxml"));
-        primaryStage.setTitle("Мое первое FX приложение");
+        primaryStage.setTitle("Коммунальный калькулятор");
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
