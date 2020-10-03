@@ -15,6 +15,10 @@ public abstract class Window {
 	@FXML
 	public TextField inputElectricityWater;
 
+	public TextField inputPrevHotWater;
+	public TextField inputPrevColdWater;
+	public TextField inputPrevElectricityWater;
+
 	@FXML
 	public abstract void calculate();
 }

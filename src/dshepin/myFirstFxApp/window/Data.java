@@ -5,6 +5,10 @@ public class Data {
 	private String inputColdWater;
 	private String inputElectricityWater;
 
+	private String inputPrevHotWater;
+	private String inputPrevColdWater;
+	private String inputPrevElectricityWater;
+
 
 	public String getInputHotWater() {
 		return inputHotWater;
@@ -28,5 +32,29 @@ public class Data {
 
 	public void setInputElectricityWater(String inputElectricityWater) {
 		this.inputElectricityWater = inputElectricityWater;
+	}
+
+	public String getInputPrevHotWater() {
+		return inputPrevHotWater;
+	}
+
+	public void setInputPrevHotWater(String inputPrevHotWater) {
+		this.inputPrevHotWater = inputPrevHotWater;
+	}
+
+	public String getInputPrevColdWater() {
+		return inputPrevColdWater;
+	}
+
+	public void setInputPrevColdWater(String inputPrevColdWater) {
+		this.inputPrevColdWater = inputPrevColdWater;
+	}
+
+	public String getInputPrevElectricityWater() {
+		return inputPrevElectricityWater;
+	}
+
+	public void setInputPrevElectricityWater(String inputPrevElectricityWater) {
+		this.inputPrevElectricityWater = inputPrevElectricityWater;
 	}
 }
