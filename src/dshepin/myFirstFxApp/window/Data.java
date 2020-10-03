@@ -1,6 +1,6 @@
 package dshepin.myFirstFxApp.window;
 
-public class Data extends WindowController{
+public class Data {
 	private String inputHotWater;
 	private String inputColdWater;
 	private String inputElectricityWater;
