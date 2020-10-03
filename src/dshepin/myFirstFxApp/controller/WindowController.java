@@ -59,5 +59,21 @@ public class WindowController extends Window {
 		inputColdWater.clear();
 		inputHotWater.clear();
 		inputElectricityWater.clear();
+
+		inputPrevHotWater.clear();
+		inputPrevColdWater.clear();
+		inputPrevElectricityWater.clear();
+
+		expenseHotWater.clear();
+		expenseColdWater.clear();
+		expenseElectricity.clear();
+
+		costHotWater.clear();
+		costColdWater.clear();
+		costElectricity.clear();
+		shit.clear();
+
+		sumCost.setText("");
+
 	}
 }
