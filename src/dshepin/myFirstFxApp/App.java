@@ -10,7 +10,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("window/window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("fx/window.fxml"));
         primaryStage.setTitle("Коммунальный калькулятор");
 
         primaryStage.setScene(new Scene(root));

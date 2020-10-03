@@ -1,4 +1,9 @@
-package dshepin.myFirstFxApp.window;
+package dshepin.myFirstFxApp.controller;
+
+import dshepin.myFirstFxApp.data.Data;
+import dshepin.myFirstFxApp.fx.Window;
+import dshepin.myFirstFxApp.logic.Calculator;
+import dshepin.myFirstFxApp.logic.CheckParameters;
 
 public class WindowController extends Window {
 	private final CheckParameters checkParameters;
@@ -27,9 +32,15 @@ public class WindowController extends Window {
 	}
 
 	private void setFXData(Data newData) {
-		inputPrevColdWater.setText(newData.getInputColdWater());
-		inputPrevHotWater.setText(newData.getInputHotWater());
-		inputPrevElectricityWater.setText(newData.getInputElectricityWater());
+		expenseColdWater.setText(newData.getExpenseColdWater());
+		expenseHotWater.setText(newData.getExpenseHotWater());
+		expenseElectricity.setText(newData.getExpenseElectricity());
+
+		costColdWater.setText(newData.getCostColdWater());
+		costHotWater.setText(newData.getCostHotWater());
+		costElectricity.setText(newData.getCostElectricity());
+		shit.setText(newData.getShit());
+		sumCost.setText(newData.getSumCost());
 	}
 
 	private Data setInputData() {

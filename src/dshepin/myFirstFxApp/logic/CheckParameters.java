@@ -1,4 +1,6 @@
-package dshepin.myFirstFxApp.window;
+package dshepin.myFirstFxApp.logic;
+
+import dshepin.myFirstFxApp.data.Data;
 
 public class CheckParameters {
 	public boolean checkParameters(Data data) {
