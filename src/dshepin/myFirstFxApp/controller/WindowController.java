@@ -4,6 +4,7 @@ import dshepin.myFirstFxApp.data.Data;
 import dshepin.myFirstFxApp.fx.Window;
 import dshepin.myFirstFxApp.logic.Calculator;
 import dshepin.myFirstFxApp.logic.DataProcesser;
+import dshepin.myFirstFxApp.logic.ExcelWriter;
 
 public class WindowController extends Window {
 	private final DataProcesser dataProcesser;
@@ -24,6 +25,8 @@ public class WindowController extends Window {
 
 		Data newData = calculator.calculate(processedData);
 		setFXData(newData);
+
+		new ExcelWriter().write(newData);
 	}
 
 	private boolean isFailData(Data data, Data checkedData) {
