@@ -2,7 +2,7 @@ package dshepin.myFirstFxApp.logic;
 
 import dshepin.myFirstFxApp.data.Data;
 
-import static dshepin.myFirstFxApp.data.Price.*;
+import static dshepin.myFirstFxApp.constants.Price.*;
 
 public class Calculator {
 	private Data data;

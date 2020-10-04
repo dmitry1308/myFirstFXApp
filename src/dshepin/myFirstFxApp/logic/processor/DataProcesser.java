@@ -1,4 +1,4 @@
-package dshepin.myFirstFxApp.logic;
+package dshepin.myFirstFxApp.logic.processor;
 
 import dshepin.myFirstFxApp.data.Data;
 

@@ -1,4 +1,4 @@
-package dshepin.myFirstFxApp.data;
+package dshepin.myFirstFxApp.constants;
 
 public class Price {
 	public static final double COLD_WATER_PRICE = 19.46;
