@@ -3,32 +3,46 @@ package dshepin.myFirstFxApp.controller;
 import dshepin.myFirstFxApp.data.Data;
 import dshepin.myFirstFxApp.fx.Window;
 import dshepin.myFirstFxApp.logic.Calculator;
-import dshepin.myFirstFxApp.logic.CheckParameters;
+import dshepin.myFirstFxApp.logic.DataProcesser;
 
 public class WindowController extends Window {
-	private final CheckParameters checkParameters;
+	private final DataProcesser dataProcesser;
 	private final Calculator calculator;
-	private final Data data;
-	private Data newData;
 
 
 	public WindowController() {
-		checkParameters = new CheckParameters();
+		dataProcesser = new DataProcesser();
 		calculator = new Calculator();
-		data = new Data();
-		newData = new Data();
 	}
 
 	@Override
 	public void calculate() {
 		Data data = setInputData();
-		boolean isGoodParameters = checkParameters.checkParameters(data);
-		if (!isGoodParameters) {
-			cleanAllParameter();
-			return;
-		}
-		newData = calculator.calculate(data);
+
+		Data processedData = dataProcesser.process(data);
+		if (isFailData(data, processedData)) return;
+
+		Data newData = calculator.calculate(processedData);
 		setFXData(newData);
+	}
+
+	private boolean isFailData(Data data, Data checkedData) {
+		if (checkedData.isFail()) {
+			cleanCalculateData();
+			correctFailedParametrs(checkedData);
+			data.setFail(false);
+			return true;
+		}
+		return false;
+	}
+
+	private void correctFailedParametrs(Data checkedData) {
+		inputHotWater.setText(checkedData.getInputHotWater());
+		inputColdWater.setText(checkedData.getInputColdWater());
+		inputElectricityWater.setText(checkedData.getInputElectricityWater());
+		inputPrevHotWater.setText(checkedData.getInputPrevHotWater());
+		inputPrevColdWater.setText(checkedData.getInputPrevColdWater());
+		inputPrevElectricityWater.setText(checkedData.getInputPrevElectricityWater());
 	}
 
 	private void setFXData(Data newData) {
@@ -44,6 +58,7 @@ public class WindowController extends Window {
 	}
 
 	private Data setInputData() {
+		Data data = new Data();
 		data.setInputColdWater(inputColdWater.getText());
 		data.setInputHotWater(inputHotWater.getText());
 		data.setInputElectricityWater(inputElectricityWater.getText());
@@ -64,6 +79,10 @@ public class WindowController extends Window {
 		inputPrevColdWater.clear();
 		inputPrevElectricityWater.clear();
 
+		cleanCalculateData();
+	}
+
+	private void cleanCalculateData() {
 		expenseHotWater.clear();
 		expenseColdWater.clear();
 		expenseElectricity.clear();
@@ -74,6 +93,5 @@ public class WindowController extends Window {
 		shit.clear();
 
 		sumCost.setText("");
-
 	}
 }

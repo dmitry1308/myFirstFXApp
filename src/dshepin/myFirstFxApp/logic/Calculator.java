@@ -33,7 +33,6 @@ public class Calculator {
 
 		String summa = String.valueOf(coldCost + hoCost + shitCost + electCost);
 		data.setSumCost(summa);
-
 	}
 
 	private void calculateExpense() {

@@ -19,6 +19,16 @@ public class Data {
 	public String shit;
 	public String sumCost;
 
+	private boolean isFail;
+
+
+	public boolean isFail() {
+		return isFail;
+	}
+
+	public void setFail(boolean fail) {
+		isFail = fail;
+	}
 
 	public String getInputHotWater() {
 		return inputHotWater;
