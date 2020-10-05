@@ -4,9 +4,10 @@ import dshepin.myFirstFxApp.data.Data;
 import dshepin.myFirstFxApp.fx.Window;
 import dshepin.myFirstFxApp.logic.Calculator;
 import dshepin.myFirstFxApp.logic.processor.DataProcesser;
-import dshepin.myFirstFxApp.logic.dataCreatorForFile.ExcelDataCreator;
-import dshepin.myFirstFxApp.logic.writer.ExcelWriter;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import dshepin.myFirstFxApp.logic.reader.ExcelReader;
+import org.apache.poi.ss.usermodel.Sheet;
+
+import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
 public class WindowController extends Window {
 	private final DataProcesser dataProcesser;
@@ -28,8 +29,11 @@ public class WindowController extends Window {
 		Data newData = calculator.calculate(processedData);
 		setFXData(newData);
 
-		XSSFWorkbook book = new ExcelDataCreator<>().create(newData);
-		new ExcelWriter().write(book);
+		//XSSFWorkbook book = new ExcelDataCreator<>().create(newData);
+		//new ExcelWriter().write(book);
+		Sheet read = new ExcelReader().read(FILE_NAME);
+		int lastRowNum = read.getLastRowNum();
+		System.out.println(lastRowNum);
 	}
 
 	private boolean isFailData(Data data, Data checkedData) {
