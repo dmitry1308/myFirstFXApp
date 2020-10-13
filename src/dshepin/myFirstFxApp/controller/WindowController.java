@@ -31,9 +31,9 @@ public class WindowController extends Window {
 
 		//XSSFWorkbook book = new ExcelDataCreator<>().create(newData);
 		//new ExcelWriter().write(book);
-		Sheet read = new ExcelReader().read(FILE_NAME);
-		int lastRowNum = read.getLastRowNum();
-		System.out.println(lastRowNum);
+		Sheet page = new ExcelReader().read(FILE_NAME);
+		Data data1 = dataProcesser.processExcelSheet(page);
+
 	}
 
 	private boolean isFailData(Data data, Data checkedData) {

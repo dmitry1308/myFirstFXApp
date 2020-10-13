@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 
-public class ExcelReader implements Reader{
+public class ExcelReader implements Reader<Sheet,String>{
 	@Override
 	public Sheet read(String fileName) {
 		try {

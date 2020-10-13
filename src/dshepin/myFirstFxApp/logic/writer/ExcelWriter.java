@@ -7,7 +7,7 @@ import java.io.IOException;
 
 import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
-public class ExcelWriter implements FileWriter {
+public class ExcelWriter implements FileWriter<XSSFWorkbook> {
 
 	@Override
 	public void write(XSSFWorkbook book) {

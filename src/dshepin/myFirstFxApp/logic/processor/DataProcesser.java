@@ -1,6 +1,7 @@
 package dshepin.myFirstFxApp.logic.processor;
 
 import dshepin.myFirstFxApp.data.Data;
+import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,8 +59,6 @@ public class DataProcesser {
 		} else {
 			data.setInputPrevElectricityWater(inputPrevElectricityWater);
 		}
-
-		
 		return data;
 	}
 
@@ -80,4 +79,9 @@ public class DataProcesser {
 		Matcher matcher = pattern.matcher(input);
 		return matcher.find();
 	}
+
+	public Data processExcelSheet(Sheet page) {
+		return new Data();
+	}
+
 }
