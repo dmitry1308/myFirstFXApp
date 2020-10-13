@@ -1,6 +1,7 @@
 package dshepin.myFirstFxApp.logic.processor;
 
 import dshepin.myFirstFxApp.data.Data;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.regex.Matcher;
@@ -80,8 +81,24 @@ public class DataProcesser {
 		return matcher.find();
 	}
 
-	public Data processExcelSheet(Sheet page) {
-		return new Data();
+	public Data processExcelSheet(Sheet page, Data processedData) {
+		int lastRowNum = page.getLastRowNum();
+		Row row = page.getRow(lastRowNum);
+
+		int nummerColumnColdWater = 0;
+		int nummerColumnHotWater = 1;
+		int nummerColumnElectricity = 2;
+
+		data.setInputPrevColdWater(getValueCell(row, nummerColumnColdWater));
+		data.setInputPrevHotWater(getValueCell(row, nummerColumnHotWater));
+		data.setInputPrevElectricityWater(getValueCell(row, nummerColumnElectricity));
+
+		return processedData;
+	}
+
+	private String getValueCell(Row row, int nummerColumn) {
+		double numericCellValue = row.getCell(nummerColumn).getNumericCellValue();
+		return String.valueOf(numericCellValue);
 	}
 
 }

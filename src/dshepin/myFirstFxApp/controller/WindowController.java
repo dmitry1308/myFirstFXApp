@@ -26,13 +26,16 @@ public class WindowController extends Window {
 		Data processedData = dataProcesser.process(data);
 		if (isFailData(data, processedData)) return;
 
+		Sheet page = new ExcelReader().read(FILE_NAME);
+		Data data1 = dataProcesser.processExcelSheet(page,processedData);
+
+
 		Data newData = calculator.calculate(processedData);
 		setFXData(newData);
 
 		//XSSFWorkbook book = new ExcelDataCreator<>().create(newData);
 		//new ExcelWriter().write(book);
-		Sheet page = new ExcelReader().read(FILE_NAME);
-		Data data1 = dataProcesser.processExcelSheet(page);
+
 
 	}
 
