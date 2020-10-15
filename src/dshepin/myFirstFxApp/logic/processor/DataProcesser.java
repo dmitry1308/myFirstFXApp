@@ -1,11 +1,15 @@
 package dshepin.myFirstFxApp.logic.processor;
 
 import dshepin.myFirstFxApp.data.Data;
+import dshepin.myFirstFxApp.logic.finder.FileFinder;
+import dshepin.myFirstFxApp.logic.reader.ExcelReader;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
 public class DataProcesser {
 	private static final String REGEX = "[^0-9]";
@@ -39,6 +43,17 @@ public class DataProcesser {
 		}
 
 
+		boolean isFileFinded = new FileFinder().isFind("Директория файла");
+		if (isFileFinded) {
+			Sheet page = new ExcelReader().read(FILE_NAME);
+			processExcelSheet(page, data);
+			return data;
+		} else {
+			return processInputPrevData();
+		}
+	}
+
+	private Data processInputPrevData() {
 		String inputPrevColdWater = data.getInputPrevColdWater().trim();
 		if (isBad(inputPrevColdWater)) {
 			data.setInputPrevColdWater(EMPTY_STRING);

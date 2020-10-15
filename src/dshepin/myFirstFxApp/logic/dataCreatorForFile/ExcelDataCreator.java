@@ -1,5 +1,8 @@
 package dshepin.myFirstFxApp.logic.dataCreatorForFile;
 
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.ss.usermodel.Sheet;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -53,5 +56,18 @@ public class ExcelDataCreator<Data> implements FileDataCreator<Data> {
 			XSSFCell cell = excelRow.createCell(i);
 			cell.setCellValue(indication[i]);
 		}
+	}
+
+	public Workbook writeRowWithDataToBook(Workbook book, dshepin.myFirstFxApp.data.Data newData){
+		Sheet sheet = book.getSheetAt(0);
+		int lastRowNum = sheet.getLastRowNum();
+		Row row = sheet.createRow(lastRowNum + 1);
+		row.createCell(0);
+		row.createCell(1);
+		row.createCell(2);
+		row.getCell(0).setCellValue(Integer.parseInt(newData.getInputColdWater()));
+		row.getCell(1).setCellValue(Integer.parseInt(newData.getInputHotWater()));
+		row.getCell(2).setCellValue(Integer.parseInt(newData.getInputElectricityWater()));
+		return book;
 	}
 }

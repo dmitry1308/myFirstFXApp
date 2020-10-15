@@ -1,16 +1,16 @@
 package dshepin.myFirstFxApp.logic.writer;
 
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
-public class ExcelWriter implements FileWriter<XSSFWorkbook> {
+public class ExcelWriter implements FileWriter<Workbook> {
 
 	@Override
-	public void write(XSSFWorkbook book) {
+	public void write(Workbook book) {
 		try {
 			FileOutputStream outputStream = new FileOutputStream(FILE_NAME);
 			book.write(outputStream);

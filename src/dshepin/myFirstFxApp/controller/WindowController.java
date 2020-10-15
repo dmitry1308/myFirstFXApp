@@ -3,9 +3,11 @@ package dshepin.myFirstFxApp.controller;
 import dshepin.myFirstFxApp.data.Data;
 import dshepin.myFirstFxApp.fx.Window;
 import dshepin.myFirstFxApp.logic.Calculator;
+import dshepin.myFirstFxApp.logic.dataCreatorForFile.ExcelDataCreator;
 import dshepin.myFirstFxApp.logic.processor.DataProcesser;
 import dshepin.myFirstFxApp.logic.reader.ExcelReader;
-import org.apache.poi.ss.usermodel.Sheet;
+import dshepin.myFirstFxApp.logic.writer.ExcelWriter;
+import org.apache.poi.ss.usermodel.Workbook;
 
 import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
@@ -26,15 +28,12 @@ public class WindowController extends Window {
 		Data processedData = dataProcesser.process(data);
 		if (isFailData(data, processedData)) return;
 
-		Sheet page = new ExcelReader().read(FILE_NAME);
-		Data data1 = dataProcesser.processExcelSheet(page,processedData);
-
-
 		Data newData = calculator.calculate(processedData);
 		setFXData(newData);
 
-		//XSSFWorkbook book = new ExcelDataCreator<>().create(newData);
-		//new ExcelWriter().write(book);
+		Workbook book = new ExcelReader().readBook(FILE_NAME);
+		Workbook workbook = new ExcelDataCreator<>().writeRowWithDataToBook(book, newData);
+		new ExcelWriter().write(workbook);
 
 
 	}
@@ -59,6 +58,10 @@ public class WindowController extends Window {
 	}
 
 	private void setFXData(Data newData) {
+		inputPrevColdWater.setText(newData.getInputPrevColdWater());
+		inputPrevHotWater.setText(newData.getInputPrevHotWater());
+		inputPrevElectricityWater.setText(newData.getInputPrevElectricityWater());
+
 		expenseColdWater.setText(newData.getExpenseColdWater());
 		expenseHotWater.setText(newData.getExpenseHotWater());
 		expenseElectricity.setText(newData.getExpenseElectricity());

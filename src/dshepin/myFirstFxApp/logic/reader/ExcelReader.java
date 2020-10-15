@@ -21,4 +21,14 @@ public class ExcelReader implements Reader<Sheet,String>{
 		}
 		return null;
 	}
+
+	public Workbook readBook(String fileName) {
+		try {
+			FileInputStream excelFile = new FileInputStream(new File(fileName));
+			return new XSSFWorkbook(excelFile);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

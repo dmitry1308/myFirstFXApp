@@ -15,19 +15,19 @@ public class Calculator {
 	}
 
 	private void calculateCost() {
-		int expensiveColdWater = Integer.parseInt(data.getExpenseColdWater());
+		double expensiveColdWater = Double.parseDouble(data.getExpenseColdWater());
 		double coldCost = expensiveColdWater * COLD_WATER_PRICE;
 		data.setCostColdWater(String.valueOf(coldCost));
 
-		int expensiveHotWater = Integer.parseInt(data.getExpenseHotWater());
+		double expensiveHotWater = Double.parseDouble(data.getExpenseHotWater());
 		double hoCost = expensiveHotWater * HOT_WATER_PRICE;
 		data.setCostHotWater(String.valueOf(hoCost));
 
-		int shit = Integer.parseInt(data.getExpenseColdWater()) + Integer.parseInt(data.getExpenseHotWater());
+		double shit = Double.parseDouble(data.getExpenseColdWater()) + Double.parseDouble(data.getExpenseHotWater());
 		double shitCost = shit * SHIT;
 		data.setShit(String.valueOf(shitCost));
 
-		int electricity = Integer.parseInt(data.getExpenseElectricity());
+		double electricity = Double.parseDouble(data.getExpenseElectricity());
 		double electCost = electricity * ELECTRICITY_PRICE;
 		data.setCostElectricity(String.valueOf(electCost));
 
@@ -36,16 +36,16 @@ public class Calculator {
 	}
 
 	private void calculateExpense() {
-		Integer hotWater = Integer.valueOf(data.getInputHotWater());
-		Integer prevHotWater = Integer.valueOf(data.getInputPrevHotWater());
+		double hotWater = Double.valueOf(data.getInputHotWater());
+		double prevHotWater = Double.valueOf(data.getInputPrevHotWater());
 		data.setExpenseHotWater(String.valueOf(hotWater - prevHotWater));
 
-		Integer ColdWater = Integer.valueOf(data.getInputColdWater());
-		Integer prevColdWater = Integer.valueOf(data.getInputPrevColdWater());
+		double ColdWater = Double.valueOf(data.getInputColdWater());
+		double prevColdWater = Double.valueOf(data.getInputPrevColdWater());
 		data.setExpenseColdWater(String.valueOf(ColdWater - prevColdWater));
 
-		Integer electricity = Integer.valueOf(data.getInputElectricityWater());
-		Integer prevElectricity = Integer.valueOf(data.getInputPrevElectricityWater());
+		double electricity = Double.valueOf(data.getInputElectricityWater());
+		double prevElectricity = Double.valueOf(data.getInputPrevElectricityWater());
 		data.setExpenseElectricity(String.valueOf(electricity - prevElectricity));
 	}
 }
