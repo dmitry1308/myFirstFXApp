@@ -104,9 +104,9 @@ public class DataProcesser {
 		int nummerColumnHotWater = 1;
 		int nummerColumnElectricity = 2;
 
-		data.setInputPrevColdWater(getValueCell(row, nummerColumnColdWater));
-		data.setInputPrevHotWater(getValueCell(row, nummerColumnHotWater));
-		data.setInputPrevElectricityWater(getValueCell(row, nummerColumnElectricity));
+		processedData.setInputPrevColdWater(getValueCell(row, nummerColumnColdWater));
+		processedData.setInputPrevHotWater(getValueCell(row, nummerColumnHotWater));
+		processedData.setInputPrevElectricityWater(getValueCell(row, nummerColumnElectricity));
 
 		return processedData;
 	}

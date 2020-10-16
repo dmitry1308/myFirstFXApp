@@ -14,11 +14,18 @@ import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 public class WindowController extends Window {
 	private final DataProcesser dataProcesser;
 	private final Calculator calculator;
+	private Data data;
 
 
 	public WindowController() {
 		dataProcesser = new DataProcesser();
 		calculator = new Calculator();
+		data = new Data();
+/*
+		Sheet page = new ExcelReader().read(FILE_NAME);
+		data = dataProcesser.processExcelSheet(page, new Data());
+		setFXPartOfData(data);*/
+
 	}
 
 	@Override
@@ -71,6 +78,12 @@ public class WindowController extends Window {
 		costElectricity.setText(newData.getCostElectricity());
 		shit.setText(newData.getShit());
 		sumCost.setText(newData.getSumCost());
+	}
+
+	private void setFXPartOfData(Data newData) {
+		inputPrevColdWater.setText(newData.getInputPrevColdWater());
+		inputPrevHotWater.setText(newData.getInputPrevHotWater());
+		inputPrevElectricityWater.setText(newData.getInputPrevElectricityWater());
 	}
 
 	private Data setInputData() {

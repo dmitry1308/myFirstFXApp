@@ -131,9 +131,9 @@
                                 </Label>
                             </children>
                         </HBox>
-                        <TextField fx:id="inputPrevHotWater" alignment="CENTER" opacity="0.99" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                        <TextField fx:id="inputPrevColdWater" alignment="CENTER" opacity="0.99" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                        <TextField fx:id="inputPrevElectricityWater" alignment="CENTER" opacity="0.99" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <TextField fx:id="inputPrevHotWater" alignment="CENTER" opacity="0.99" promptText="гв" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="inputPrevColdWater" alignment="CENTER" opacity="0.99" promptText="хв" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="inputPrevElectricityWater" alignment="CENTER" opacity="0.99" promptText="эл-во" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                     </children>
                     <columnConstraints>
                         <ColumnConstraints maxWidth="117.0" minWidth="-Infinity" prefWidth="110.0" />
