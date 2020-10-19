@@ -51,7 +51,7 @@
                         </HBox>
                         <HBox alignment="CENTER" GridPane.columnSpan="2" GridPane.rowIndex="4">
                             <children>
-                                <Button fx:id="calculateButton" alignment="CENTER" contentDisplay="CENTER" onAction="#calculate" prefWidth="400.0" style="-fx-background-color: grey; -fx-border-color: grey; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;" text="Расчитать" textFill="WHITE">
+                                <Button fx:id="calculateButton" alignment="CENTER" contentDisplay="CENTER" onAction="#handle" prefWidth="400.0" style="-fx-background-color: grey; -fx-border-color: grey; -fx-border-radius: 15; -fx-border-width: 3; -fx-background-radius: 15;" text="Расчитать" textFill="WHITE">
                                     <font>
                                         <Font name="AMGDT" size="18.0" />
                                     </font>

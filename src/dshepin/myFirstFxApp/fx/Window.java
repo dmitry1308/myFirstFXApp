@@ -30,5 +30,5 @@ public abstract class Window {
 	public Label sumCost;
 
 	@FXML
-	public abstract void calculate();
+	public abstract void handle();
 }

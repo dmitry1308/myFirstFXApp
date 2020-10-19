@@ -4,21 +4,24 @@ import dshepin.myFirstFxApp.data.Data;
 import dshepin.myFirstFxApp.fx.Window;
 import dshepin.myFirstFxApp.logic.Calculator;
 import dshepin.myFirstFxApp.logic.dataCreatorForFile.ExcelDataCreator;
+import dshepin.myFirstFxApp.logic.finder.FileFinder;
 import dshepin.myFirstFxApp.logic.processor.DataProcesser;
 import dshepin.myFirstFxApp.logic.reader.ExcelReader;
 import dshepin.myFirstFxApp.logic.writer.ExcelWriter;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.springframework.stereotype.Component;
 
 import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
+@Component
 public class WindowController extends Window {
-	private final DataProcesser dataProcesser;
+	private final DataProcesser dataProcessor;
 	private final Calculator calculator;
 	private Data data;
 
 
 	public WindowController() {
-		dataProcesser = new DataProcesser();
+		dataProcessor = new DataProcesser();
 		calculator = new Calculator();
 		data = new Data();
 /*
@@ -29,10 +32,13 @@ public class WindowController extends Window {
 	}
 
 	@Override
-	public void calculate() {
+	public void handle() {
+		data = new Data();
+		boolean findedExistFile = new FileFinder().isFind(FILE_NAME);
+
 		Data data = setInputData();
 
-		Data processedData = dataProcesser.process(data);
+		Data processedData = dataProcessor.process(data);
 		if (isFailData(data, processedData)) return;
 
 		Data newData = calculator.calculate(processedData);
