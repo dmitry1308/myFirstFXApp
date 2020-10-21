@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.apache.log4j.Logger;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,6 +17,10 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        Logger.getLogger(Application.class.getName());
+        Logger.getLogger("Привет");
+        Logger.getLogger(this.getClass());
+        
         Parent root = FXMLLoader.load(getClass().getResource("fx/window.fxml"));
         primaryStage.setTitle("Коммунальный калькулятор.");
 

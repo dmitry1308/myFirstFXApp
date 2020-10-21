@@ -1,9 +1,11 @@
 package dshepin.myFirstFxApp.logic;
 
 import dshepin.myFirstFxApp.data.Data;
+import org.springframework.stereotype.Component;
 
 import static dshepin.myFirstFxApp.constants.Price.*;
 
+@Component
 public class Calculator {
 	private Data data;
 

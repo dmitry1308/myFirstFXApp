@@ -5,12 +5,15 @@ import dshepin.myFirstFxApp.logic.finder.FileFinder;
 import dshepin.myFirstFxApp.logic.reader.ExcelReader;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
+import org.springframework.stereotype.Component;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import static dshepin.myFirstFxApp.constants.File.FILE_NAME;
 
+
+@Component
 public class DataProcesser {
 	private static final String REGEX = "[^0-9]";
 	private static final String EMPTY_STRING = "";
